@@ -1,0 +1,9 @@
+
+X
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ
+X
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ
+W	java:S125"<This block of commented-out lines of code should be removed.(®ÕÇv8‡Â¹„Ó1
+E	java:S106!"+Replace this use of System.out by a logger.( ¡˜¬ùÿÿÿÿ
+f
+java:S1128"PRemove this unused import 'org.springframework.web.bind.annotation.CrossOrigin'.(º´Ñ†

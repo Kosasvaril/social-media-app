@@ -13,6 +13,7 @@ import social.app.domain.Message;
 import social.app.domain.User;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -41,7 +42,6 @@ public class UserService implements UserDetailsService {
     }
 
     public Optional<User> getUserByUsername(String username){
-        System.out.println("Request for user by username! --------------------------");
         return userRepository.findByUsername(username);
     }
 
@@ -73,8 +73,8 @@ public class UserService implements UserDetailsService {
         return this.conversationRepository.save(conversation);
     }
 
-    public Optional<Conversation> getConversationById(Long Id){
-        return this.conversationRepository.findById(Id);
+    public Optional<Conversation> getConversationById(Long id){
+        return this.conversationRepository.findById(id);
     }
 
     public Message saveMessage(Message message){
@@ -91,5 +91,17 @@ public class UserService implements UserDetailsService {
 
     public List<Message> getMessages() {
         return messageRepository.findAll();
+    }
+
+    public void deleteUser(User user){
+        userRepository.delete(user);
+    }
+
+    public void deleteMessage(Message message){
+        messageRepository.delete(message);
+    }
+
+    public void deleteConversation(Conversation conversation){
+        conversationRepository.delete(conversation);
     }
 }

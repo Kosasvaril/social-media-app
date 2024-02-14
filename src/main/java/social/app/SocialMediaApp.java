@@ -14,7 +14,7 @@ import java.io.IOException;
 @SpringBootApplication(scanBasePackages={
         "social.app", "social.app.application"})
 public class SocialMediaApp {
-    public static void main(String[] args) throws JsonException, IOException {
+    public static void main(String[] args) {
         SpringApplication.run(SocialMediaApp.class, args);
     }
 }

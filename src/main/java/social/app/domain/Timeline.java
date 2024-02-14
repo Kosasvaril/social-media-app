@@ -13,7 +13,7 @@ import java.util.List;
 @Component
 public class Timeline{
 
-    public static Timeline timeline;
+    public static final Timeline timeline = new Timeline();
     private List<Long> postIDs;
 
 
@@ -26,11 +26,6 @@ public class Timeline{
     }
 
     public static Timeline getTimeline() {
-        if(timeline == null){
-
-            timeline = new Timeline();
-
-        }
         return timeline;
     }
 

@@ -32,5 +32,12 @@ dependencies {
         exclude group: "commons-logging", module: "commons-logging"
     }
     implementation 'com.github.cliftonlabs:json-simple:3.1.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    testImplementation 'org.mockito:mockito-core:3.10.0'
+    testImplementation 'org.springframework.security:spring-security-test:6.2.1'
+}
 
+test {
+    jvmArgs '--enable-preview'
+    useJUnitPlatform()
 }

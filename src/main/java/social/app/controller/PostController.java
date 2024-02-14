@@ -1,8 +1,14 @@
 package social.app.controller;
 
 
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 import social.app.config.JwtService;
 import social.app.converter.PostConverter;
@@ -15,7 +21,7 @@ import social.app.storage.S3Bucket;
 
 @RestController
 @RequestMapping("socialmedia/post")
-public class PostController {
+public class PostController extends HttpServlet {
 
     @Autowired
     PostService postService;
@@ -39,18 +45,27 @@ public class PostController {
     }
 
     @PostMapping(path = "/create")
-    public ResponseEntity<Post> addPost(
-            @RequestBody PostModel postModel,
-            @RequestHeader(value = "Authorization") String token
-    ){
+    public ResponseEntity<Post> addPost(HttpServletRequest httpServletRequest, @RequestBody PostModel postModel ){
+        Cookie[] cookies = httpServletRequest.getCookies();
+        String token = "";
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if(cookie.getName().equals("jwtToken")){
+                    System.out.println(cookie);
+                    token = cookie.getValue();
+                }
+            }
+        }else {
+            System.out.println("cookies null!");
+        }
+
         PostConverter postConverter = new PostConverter();
         Post post = postConverter.convert(postModel);
-        String tokenValue = token.substring(7);
-        String username = jwtService.extractUsername(tokenValue);
+        String username = jwtService.extractUsername(token);
         User user = (User) userService.loadUserByUsername(username);
         post.setUser(user);
         post = postService.addNewPost(post);
-        s3Bucket.updatePosts();
+        //s3Bucket.updatePosts();
 
         return ResponseEntity.ok(post);
     }

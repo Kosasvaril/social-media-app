@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 @Table(name = "POST")
@@ -73,5 +74,18 @@ public class Post {
                 ", title:'" + title + '\'' +
                 ", content:'" + content + '\'' +
                 "} |";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Post post = (Post) o;
+        return Objects.equals(user, post.user) && Objects.equals(postID, post.postID) && Objects.equals(title, post.title) && Objects.equals(content, post.content);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(user, postID, title, content);
     }
 }

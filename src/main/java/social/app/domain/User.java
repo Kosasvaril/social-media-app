@@ -40,10 +40,12 @@ public class User implements UserDetails{
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userID;
-
 
     public String roleToString(){
         if (Objects.requireNonNull(role) == Role.USER) {
@@ -96,6 +98,15 @@ public class User implements UserDetails{
         followers = new ArrayList<>();
     }
 
+    public User(String username, String password, String email, List<Long> followers, List<Long> following, Role role, long id) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.followers = followers;
+        this.following = following;
+        this.role = role;
+        this.userID = id;
+    }
     public User(String username, String password, String email, List<Long> followers, List<Long> following, Role role) {
         this.username = username;
         this.password = password;
@@ -162,5 +173,18 @@ public class User implements UserDetails{
                 ", role:" + role +
                 ", userID:" + userID +
                 "} | \n";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(email, user.email) && Objects.equals(followers, user.followers) && Objects.equals(following, user.following) && role == user.role && Objects.equals(userID, user.userID);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username, password, email, followers, following, role, userID);
     }
 }

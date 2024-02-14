@@ -14,12 +14,11 @@ import java.util.List;
 
 public class JsonMessageConverter {
 
-    private JsonArray jsonMessages;
     private final JsonObject mediaMessages = new JsonObject();
 
     public void convert(List<Message> messages) throws IOException {
         BufferedWriter writer = Files.newBufferedWriter(Paths.get("Messages.json"));
-        jsonMessages = new JsonArray();
+        JsonArray jsonMessages = new JsonArray();
         mediaMessages.put("messages", jsonMessages);
 
         for(Message message : messages) {

@@ -1,15 +1,6 @@
 package social.app.auth;
 
 
-public class AuthenticationResponse {
+public record AuthenticationResponse(String token) {
 
-    private String token;
-
-    public String getToken() {
-        return token;
-    }
-
-    public AuthenticationResponse(String token) {
-        this.token = token;
-    }
 }

@@ -1,11 +1,11 @@
 package social.app.controller;
 
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletResponse;
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.*;
 import social.app.auth.AuthenticationResponse;
 import social.app.auth.AuthenticationService;
@@ -15,10 +15,11 @@ import social.app.domain.User;
 import social.app.storage.S3Bucket;
 
 import java.io.IOException;
+import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/api/auth")
-public class AuthenticationController {
+public class AuthenticationController extends HttpServlet {
 
     @Autowired
     private final AuthenticationService authenticationService;
@@ -31,29 +32,31 @@ public class AuthenticationController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Cookie> login(
-            @RequestBody LoginRequest request
-    ){
-        AuthenticationResponse authResp = authenticationService.login(request);
-        Cookie cookie = new Cookie("JwtToken", authResp.getToken());
-        cookie.setMaxAge(24 * 60 * 60);
-        cookie.setPath("/");
-        cookie.setSecure(true);
-        cookie.setHttpOnly(true);
-
-        return ResponseEntity.ok(cookie);
+    public void login(@RequestBody LoginRequest request, HttpServletResponse response) throws IOException {
+        try {
+            AuthenticationResponse authResp = authenticationService.login(request);
+            Cookie cookie = createCookie(authResp);
+            response.addCookie(cookie);
+            response.getWriter().write("Login was successful!");
+        }catch (BadCredentialsException e){
+            response.getWriter().write("Your password or email is incorrect!");
+        }
     }
+
+    private Cookie createCookie(AuthenticationResponse authResp) {
+        Cookie cookie = new Cookie("jwtToken", authResp.token());
+        cookie.setPath("/");
+        cookie.setHttpOnly(true);
+        cookie.setMaxAge(1000 * 60 * 60 * 24);
+        cookie.setAttribute("SameSite", "None");
+        return cookie;
+    }
+
     @PostMapping("/register")
     public ResponseEntity<User> register(
             @RequestBody RegisterRequest request
     ){
-        try {
             User user = authenticationService.register(request);
-            s3Bucket.updateUsers();
             return ResponseEntity.ok(user);
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

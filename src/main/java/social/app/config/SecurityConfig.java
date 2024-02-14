@@ -43,14 +43,15 @@ public class SecurityConfig{
                                 new AntPathRequestMatcher("/api/auth/register"),
                                 new AntPathRequestMatcher("/api/auth/login"),
                                 new AntPathRequestMatcher("/h2-console/**"),
-                                new AntPathRequestMatcher("/socialmedia/timeline")
+                                new AntPathRequestMatcher("/socialmedia/timeline"),
+                                new AntPathRequestMatcher("/socialmedia/post/**")
                         )
                         .permitAll()
         );
         http.authorizeHttpRequests(
                 auth -> auth.requestMatchers(
                         new AntPathRequestMatcher("/api/auth/demo-controller"),
-                        new AntPathRequestMatcher("/socialmedia/post/**"),
+                        //new AntPathRequestMatcher("/socialmedia/post/**"),
                         new AntPathRequestMatcher("/users/**"),
                         new AntPathRequestMatcher("/users/profile/**")
                         )

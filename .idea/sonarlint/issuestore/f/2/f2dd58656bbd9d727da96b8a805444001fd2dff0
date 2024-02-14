@@ -1,0 +1,27 @@
+
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ8„·Œ¬Ó1
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ8…·Œ¬Ó1
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ8…·Œ¬Ó1
+_
+java:S6813!"BRemove this field injection and use constructor injection instead.(êæÄÞ8…·Œ¬Ó1
+O
+java:S1948"-Make "postService" transient or serializable.(æ¤´ßýÿÿÿÿ8†·Œ¬Ó1
+O
+java:S1948"-Make "userService" transient or serializable.(¨ƒ¼¢ùÿÿÿÿ8†·Œ¬Ó1
+I
+java:S1948",Make "jwtService" transient or serializable.(²«ÈÍ8†·Œ¬Ó1
+L
+java:S1948""*Make "s3Bucket" transient or serializable.(õ¾þ¿ùÿÿÿÿ8‡·Œ¬Ó1
+L	java:S106*"+Replace this use of System.out by a logger.(©þêÜúÿÿÿÿ8Ž·Œ¬Ó1
+G	java:S1066"+Replace this use of System.out by a logger.(ŸŸã•8‘·Œ¬Ó1
+G	java:S106;"+Replace this use of System.out by a logger.(©ÀŠ—8‘·Œ¬Ó1
+]	java:S125D"<This block of commented-out lines of code should be removed.(ˆÍ´òûÿÿÿÿ8’·Œ¬Ó1
+g
+java:S1128"ERemove this unused import 'jakarta.servlet.http.HttpServletResponse'.(ÂÓÕÇÿÿÿÿÿ8“·Œ¬Ó1
+^
+java:S1128	"ARemove this unused import 'org.springframework.http.HttpRequest'.(ÌÖÁÛ8“·Œ¬Ó1
+m
+java:S1128"KRemove this unused import 'org.springframework.security.core.parameters.P'.(Æ­Åýÿÿÿÿ8“·Œ¬Ó1

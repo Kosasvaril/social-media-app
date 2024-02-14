@@ -1,0 +1,11 @@
+
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8®¶ÒÿÓ1
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8®¶ÒÿÓ1
+Y
+java:S1948"7Make "authenticationService" transient or serializable.(¦Áñúÿÿÿÿ8¯¶ÒÿÓ1
+L
+java:S1948"*Make "s3Bucket" transient or serializable.(õ¾ş¿ùÿÿÿÿ8¯¶ÒÿÓ1
+_
+java:S1128"=Remove this unused import 'java.util.NoSuchElementException'.(®“ÿéúÿÿÿÿ8ÚÒáÿÓ1

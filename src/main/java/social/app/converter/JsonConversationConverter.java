@@ -13,12 +13,11 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class JsonConversationConverter {
-    private JsonArray jsonConversations;
     private final JsonObject mediaConversations = new JsonObject();
 
     public void convert(List<Conversation> conversations) throws IOException {
         BufferedWriter writer = Files.newBufferedWriter(Paths.get("Conversations.json"));
-        jsonConversations = new JsonArray();
+        JsonArray jsonConversations = new JsonArray();
         mediaConversations.put("conversations", jsonConversations);
 
         for(Conversation conversation : conversations) {

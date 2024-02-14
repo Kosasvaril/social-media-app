@@ -2,6 +2,8 @@ package social.app.domain;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 @Table
 public class Message {
@@ -22,7 +24,7 @@ public class Message {
         this.user = user;
     }
 
-    Message(){
+    public Message(){
 
     }
 
@@ -56,5 +58,18 @@ public class Message {
 
     public void setConversation(Conversation conversation) {
         this.conversation = conversation;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Message message = (Message) o;
+        return Objects.equals(messageId, message.messageId) && Objects.equals(content, message.content) && Objects.equals(user, message.user) && Objects.equals(conversation, message.conversation);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(messageId, content, user, conversation);
     }
 }

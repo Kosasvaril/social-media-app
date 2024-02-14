@@ -27,8 +27,8 @@ public class TimelineController {
     @GetMapping
     public ResponseEntity<List<Post>> getAllPost(){
         if(!called){
-            s3Bucket.getAllUser();
-            s3Bucket.getAllPost();
+            //s3Bucket.getAllUser();
+            //s3Bucket.getAllPost();
             called = true;
             System.out.println("Called");
         }

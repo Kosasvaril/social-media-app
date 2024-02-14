@@ -46,20 +46,16 @@ public class AuthenticationService {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow();
 
-        System.out.println(user);
+        //System.out.println(user);
 
         var jwtToken = jwtService.generateToken(user);
         return new AuthenticationResponse(jwtToken);
     }
 
-    public User register(RegisterRequest request) throws IOException {
+    public User register(RegisterRequest request) {
         User user = new User(request, passwordEncoder.encode(request.getPassword()));
-        //userRepository.save(user);
-        //var jwtToken = jwtService.generateToken(user);
-        //new AuthenticationResponse(jwtToken)
         user = userRepository.save(user);
-        s3Bucket.updateUsers();
+        //s3Bucket.updateUsers();
         return user;
-
     }
 }

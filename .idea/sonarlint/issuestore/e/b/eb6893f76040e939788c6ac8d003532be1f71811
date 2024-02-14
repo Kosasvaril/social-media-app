@@ -1,0 +1,10 @@
+
+a
+java:S1192"KDefine a constant instead of duplicating this literal "Posts.json" 3 times.(ªÏ±Æ
+d	java:S116"ORename this field "PATH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªÏ±Æ
+7
+java:S1170"!Make this final field static too.(ªÏ±Æ
+n
+java:S1128"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡ž¸Îùÿÿÿÿ
+?
+java:S1128")Remove this unused import 'java.io.File'.(†Ð¥Å

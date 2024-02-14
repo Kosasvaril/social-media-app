@@ -40,11 +40,11 @@ public class UserController {
         User targetUser = userService.getUserById(id).orElseThrow();
         String message = userService.addFollower(targetUser, username);
 
-        try {
-            s3Bucket.updateUsers();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        //try {
+        //    s3Bucket.updateUsers();
+        //} catch (IOException e) {
+        //    throw new RuntimeException(e);
+        //}
 
         return ResponseEntity.ok(message);
     }
@@ -101,7 +101,7 @@ public class UserController {
 
         Message message = new Message(messageModel.getContent(), conversation, user);
         userService.saveMessage(message);
-        s3Bucket.updateConversations();
+        //s3Bucket.updateConversations();
         return ResponseEntity.ok(conversation);
     }
 }

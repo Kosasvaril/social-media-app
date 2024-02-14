@@ -1,0 +1,30 @@
+
+`	java:S112i"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+f	java:S117{"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úÞ‹ˆ
+k	java:S117|"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡ÈÞ»øÿÿÿÿ
+k
+java:S2095z"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(»±ÁÙ8áÀé„Ó1
+7
+java:S1170"!Make this final field static too.(öÌ”š
+<
+java:S1170"!Make this final field static too.(×¨–ëýÿÿÿÿ
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ8ãÀé„Ó1
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ8ãÀé„Ó1
+n
+java:S4275'"LRefactor this getter so that it actually refers to the field "bucketRegion".(¯©ƒ¦üÿÿÿÿ8æÀé„Ó1
+E	java:S106;"+Replace this use of System.out by a logger.(©þêÜúÿÿÿÿ
+N
+java:S1854C"9Remove this useless assignment to local variable "file2".(ú²è,
+N
+java:S1854B"8Remove this useless assignment to local variable "file".(”Õòî
+?
+java:S1481B")Remove this unused "file" local variable.(”Õòî
+?
+java:S1481C"*Remove this unused "file2" local variable.(ú²è,
+E	java:S106I"+Replace this use of System.out by a logger.(©þêÜúÿÿÿÿ
+V	java:S125K"<This block of commented-out lines of code should be removed.(žµ‡‚ÿÿÿÿÿ
+E	java:S106Y"+Replace this use of System.out by a logger.(©þêÜúÿÿÿÿ
+E	java:S106g"+Replace this use of System.out by a logger.(©þêÜúÿÿÿÿ
+E	java:S106s"+Replace this use of System.out by a logger.(©þêÜúÿÿÿÿ
